@@ -39,6 +39,15 @@
         display: flex;
         flex-direction: column;
         padding: 15px 0;
+        color: white;
+        background: #45337b;
+        border: 1px solid #1a1137;
+        font-size: 1.2rem;
+    }
+
+    .item:hover {
+        background: #6a4ebf;
+        cursor: pointer;
     }
 
 </style>

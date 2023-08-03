@@ -113,6 +113,8 @@
         h.id = i;
     })
 
+    let showPokes = false;
+
     let chosenMon;
     let chosenHelds = [];
     let chosenBattle;
@@ -125,6 +127,7 @@
     }
 
     function getRandomMon() {
+        showPokes = false;
         chosenHelds = [];
         chosenBattle = "";
 
@@ -193,14 +196,6 @@
 <main>
     <h1>Unite Randomiser</h1>
 
-    <div class="card">
-        <Pokemon {pokes} />
-        <BattleItem bind:chooseBattleItem battleItems={battleItems} />
-        <HeldItems bind:chooseHeldItem heldItems={heldItems} />
-    </div>
-
-    <button on:click={getRandomMon}>Randomise!</button>
-
     {#if chosenMon}
     <div id="chosen-mon" style="color: {chosenMon.final ? 'gold' :'grey'}">{chosenMon.name}</div>
     {/if}
@@ -210,30 +205,62 @@
     {/if}
 
     {#if chosenHelds.length}
+    <div id="chosen-held-wrapper">
     {#each chosenHelds as chosenHeld}
     <div id="chosen-held">{chosenHeld.name}</div>
     {/each}
+    </div>
     {/if}
+
+    <button on:click={getRandomMon}>Randomise!</button>
+
+    <div class="card">
+        <Pokemon pokes={pokes} bind:showPokes />
+        <BattleItem bind:chooseBattleItem battleItems={battleItems} />
+        <HeldItems bind:chooseHeldItem heldItems={heldItems} />
+    </div>
+
+
 
 
 </main>
 
 <style>
     #chosen-mon {
-        font-size: 25px;
+        font-size: 3.5rem;
         font-weight: bold;
+        background: #6a4ebf;
+        width: 30%;
+        border-radius: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+
+    }
+
+
+    #chosen-battle {
+        font-size: 1.6rem;
         margin: 20px;
+        margin-bottom: 30px;
+        background: #6a4ebf;
+        width: 20%;
+        border-radius: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    #chosen-held-wrapper {
+        background: #6a4ebf;
+        width: 15%;
+        border-radius: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 5px 0;
     }
 
     #chosen-held {
-        font-size: 15px;
-        margin: 20px;
-    }
-
-    #chosen-battle {
-        font-size: 20px;
-        margin: 20px;
-
+        font-size: 1.2rem;
+        margin: 10px 0;
     }
 
 </style>

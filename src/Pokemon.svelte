@@ -8,7 +8,7 @@
     ];
 
     export let pokes;
-    let showPokes = false;
+    export let showPokes;
 
     function togglePokesArea() {
         showPokes = !showPokes;
@@ -26,16 +26,17 @@
 </script>
 <div id="pokemon-main">
     <div id="roles-area">
-        {#each roles as { name, include }, i}
-        <label class="role">
-            <input type="checkbox" name={name} on:change={(e)=> {
-            togglesPokesFromRow(e.target.name, !include);
-            include = !include;
-            }} checked={include}>
-            <br />
-            {name}
-        </label>
-        {/each}
+        <div class="roles-buttons">
+            {#each roles as { name, include }, i}
+            <label class="role">
+                <input type="checkbox" name={name} on:change={(e)=> {
+                togglesPokesFromRow(e.target.name, !include);
+                include = !include;
+                }} checked={include}>
+                {name}
+            </label>
+            {/each}
+        </div>
         <button on:click={togglePokesArea}>{showPokes ? "Hide" : "Show"} All Pokemon</button>
     </div>
 
@@ -63,14 +64,27 @@
         flex-direction: row;
         margin-bottom: 20px;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        color: white;
+    }
+
+    .roles-buttons {
+        width: 90%;
+        display: flex;
     }
 
     .role {
         width: 20%;
         display: flex;
         flex-direction: column;
+        border: 1px solid darkgrey;
+        font-size: 1.5rem;
+        background: #45337b;
+        cursor: pointer;
+    }
 
+    .role:hover {
+        background: #6a4ebf;
     }
 
 
@@ -88,6 +102,15 @@
         display: flex;
         flex-direction: column;
         padding: 15px 0;
+        color: white;
+        background: #45337b;
+        border: 1px solid #1a1137;
+        font-size: 1.2rem;
+    }
+
+    .pokemon:hover {
+        background: #6a4ebf;
+        cursor: pointer;
     }
 
 </style>

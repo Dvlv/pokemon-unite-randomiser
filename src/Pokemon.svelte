@@ -28,11 +28,11 @@
     <div id="roles-area">
         <div class="roles-buttons">
             {#each roles as { name, include }, i}
-            <label class="role">
-                <input type="checkbox" name={name} on:change={(e)=> {
-                togglesPokesFromRow(e.target.name, !include);
-                include = !include;
-                }} checked={include}>
+            <input type="checkbox" name={name} id={name} on:change={(e)=> {
+            togglesPokesFromRow(e.target.name, !include);
+            include = !include;
+            }} checked={include}>
+            <label class="role" for={name}>
                 {name}
             </label>
             {/each}
@@ -47,8 +47,10 @@
     {#key pokes}
     <div id="pokemon-area">
         {#each pokes as poke(poke.id)}
-        <label class="pokemon">
-            <input type="checkbox" name={poke.name} bind:checked={poke.include}> {poke.name}
+
+        <input type="checkbox" name={poke.name} id={poke.name} bind:checked={poke.include}>
+        <label class="pokemon" for={poke.name}>
+            {poke.name}
         </label>
         {/each}
     </div>
@@ -81,11 +83,13 @@
         font-size: 1.5rem;
         background: #45337b;
         cursor: pointer;
+        padding-top: 5px;
     }
 
     .role:hover {
         background: #6a4ebf;
     }
+
 
 
     #pokemon-area {

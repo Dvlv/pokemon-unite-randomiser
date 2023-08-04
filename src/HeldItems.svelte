@@ -6,9 +6,9 @@
 
 
 <div id="held-items-main">
-    <label>
-        <input name="held" type="checkbox" bind:checked={chooseHeldItem}>
-        Choose Held Items
+    <input name="held" type="checkbox" id="held" bind:checked={chooseHeldItem}>
+    <label id="held-label" for="held">
+        Random Held Items
     </label>
 
     {#if chooseHeldItem}
@@ -16,8 +16,9 @@
 
     <div id="helditem-area">
         {#each heldItems as heldItem(heldItem.id)}
-        <label class="item">
-            <input type="checkbox" name={heldItem.name} bind:checked={heldItem.include}> {heldItem.name}
+        <input type="checkbox" name={heldItem.name} id={heldItem.name} bind:checked={heldItem.include}>
+        <label class="item" for={heldItem.name}>
+            {heldItem.name}
         </label>
         {/each}
     </div>
@@ -48,6 +49,21 @@
     .item:hover {
         background: #6a4ebf;
         cursor: pointer;
+    }
+
+    label#held-label:before {
+        display: inline-block;
+        margin: 0;
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+    }
+
+    label#held-label {
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 </style>

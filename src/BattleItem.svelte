@@ -6,9 +6,9 @@
 
 
 <div id="battle-items-main">
-    <label>
-        <input name="battle" type="checkbox" bind:checked={chooseBattleItem}>
-        Choose Battle Item
+    <input name="battle" id="battle" type="checkbox" bind:checked={chooseBattleItem}>
+    <label for="battle" id="battle-label">
+        Random Battle Item
     </label>
 
     {#if chooseBattleItem}
@@ -16,8 +16,9 @@
 
     <div id="battleitem-area">
         {#each battleItems as battleItem(battleItem.id)}
-        <label class="item">
-            <input type="checkbox" name={battleItem.name} bind:checked={battleItem.include}> {battleItem.name}
+        <input type="checkbox" name={battleItem.name} id={battleItem.name} bind:checked={battleItem.include}>
+        <label class="item" for={battleItem.name}>
+            {battleItem.name}
         </label>
         {/each}
     </div>
@@ -48,6 +49,21 @@
     .item:hover {
         background: #6a4ebf;
         cursor: pointer;
+    }
+
+    label#battle-label:before {
+        display: inline-block;
+        margin: 0;
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+    }
+
+    label#battle-label {
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 </style>

@@ -194,7 +194,7 @@
 </script>
 
 <main>
-    <h1>Unite Randomiser</h1>
+    <h1>Unite Randomizer</h1>
 
     {#if chosenMon}
     <div id="chosen-mon" style="color: {chosenMon.final ? 'gold' :'grey'}">{chosenMon.name}</div>
@@ -212,7 +212,7 @@
     </div>
     {/if}
 
-    <button on:click={getRandomMon}>Randomise!</button>
+    <button id="main-btn" on:click={getRandomMon}>Randomize!</button>
 
     <div class="card">
         <Pokemon pokes={pokes} bind:showPokes />
@@ -261,6 +261,11 @@
     #chosen-held {
         font-size: 1.2rem;
         margin: 10px 0;
+    }
+
+    #main-btn {
+    font-size: 1.8rem;
+    font-weight: bold;
     }
 
 </style>

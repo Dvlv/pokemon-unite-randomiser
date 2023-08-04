@@ -51,7 +51,7 @@
         cursor: pointer;
     }
 
-    label#held-label:before {
+    #held-label:before {
         display: inline-block;
         margin: 0;
         width: 25px;
@@ -59,7 +59,7 @@
         margin-right: 15px;
     }
 
-    label#held-label {
+    #held-label {
         font-size: 1.3rem;
         display: flex;
         align-items: center;

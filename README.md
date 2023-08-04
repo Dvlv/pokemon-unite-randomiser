@@ -1,4 +1,4 @@
-# Pokemon Unite Randomiser
+# Pokemon Unite Randomizer
 
 [Use It Here!](https://dvlv.github.io/pokemon-unite-randomizer/)
 

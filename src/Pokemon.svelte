@@ -50,6 +50,7 @@
 
         <input type="checkbox" name={poke.name} id={poke.name} bind:checked={poke.include}>
         <label class="pokemon" for={poke.name}>
+            <img src="{poke.name}.png" style="width:64px;height:64px;margin:10px auto 0 auto;">
             {poke.name}
         </label>
         {/each}

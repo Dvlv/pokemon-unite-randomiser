@@ -197,7 +197,10 @@
     <h1>Unite Randomizer</h1>
 
     {#if chosenMon}
-    <div id="chosen-mon" style="color: {chosenMon.final ? 'gold' :'grey'}">{chosenMon.name}</div>
+    <div id="chosen-mon" style="color: {chosenMon.final ? 'gold' :'grey'}">
+    <img src="{chosenMon.name}.png">
+    {chosenMon.name}
+    </div>
     {/if}
 
     {#if chosenBattle}
@@ -234,7 +237,14 @@
         border-radius: 20px;
         margin: 0 auto;
         margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
 
+    #chosen-mon img {
+        width: 128px;
+        height: 128px;
+        margin: 10px auto 0 auto;
     }
 
 

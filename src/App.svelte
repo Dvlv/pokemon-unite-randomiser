@@ -40,7 +40,7 @@
         {"name": "Machamp", "type": "All-Rounder", "include": true, },
         {"name": "Mamoswine", "type": "Defender", "include": true, },
         {"name": "Mew", "type": "Attacker", "include": true, },
-        {"name": "Mewtwo", "type": "All-Rounder", "include": true, },
+        {"name": "MewtwoX", "type": "All-Rounder", "include": true, },
         {"name": "Mr Mime", "type": "Support", "include": true, },
         {"name": "Ninetales", "type": "Attacker", "include": true, },
         {"name": "Pikachu", "type": "Attacker", "include": true, },
@@ -198,7 +198,7 @@
 
     {#if chosenMon}
     <div id="chosen-mon" style="color: {chosenMon.final ? 'gold' :'grey'}">
-    <img src="{chosenMon.name}.png">
+    <img src="{chosenMon.name}.png" alt={chosenMon.name}>
     {chosenMon.name}
     </div>
     {/if}
